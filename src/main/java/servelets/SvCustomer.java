@@ -4,7 +4,6 @@
 package servelets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -15,8 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import models.Controller;
 import models.Customer;
-
-
 
 
 
@@ -58,8 +55,8 @@ public class SvCustomer extends HttpServlet {
         
         //le parametre est le meme id utilisé dans le formulaire chargeCustomer.jsp
   
-        String customerNumber = request.getParameter("customerNumberId");
-        String customerName = request.getParameter("customerNameId"); // customerName changé par customerNameId
+        //String customerNumber = request.getParameter("customerNumberId");
+        String customerName = request.getParameter("customerNameId");
         String contactLastName = request.getParameter("contactLastName");
         String contactFirstName =request.getParameter("contactFirstName");
         String phone= request.getParameter("phone");
@@ -69,13 +66,15 @@ public class SvCustomer extends HttpServlet {
         String state= request.getParameter("state");
         String postalCode= request.getParameter("postalCode");
         String country= request.getParameter("country");
-        String creditLimit= request.getParameter("creditLimit");
+        float creditLimit= Float.parseFloat(request.getParameter("creditLimit"));
+        int salesRepEmployeeNumber = Integer.parseInt(request.getParameter("salesRepEmployeeNumber"));
         
         System.out.println("el nombre de customer es "+customerName);
+        
         //il est crée en controller  - creerCustomer
-        control.creerCustomer(customerName, contactLastName, contactFirstName, phone, addressLine1, addressLine2, city, state, postalCode, country, 0);
+        control.creerCustomer(customerName, contactLastName, contactFirstName, phone, addressLine1, addressLine2, city, state, postalCode, country, creditLimit, salesRepEmployeeNumber);
                 
-        //  control.crearUsuario(nombreUsuario, contrasenia, rol);
+        //redicretion vers index apres insert dans la BDD
         response.sendRedirect("index.jsp");
     }
 

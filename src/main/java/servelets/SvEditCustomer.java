@@ -1,12 +1,9 @@
 /*
-* 
+* SvEditCustomer
  */
 package servelets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.HashSet;
-import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +17,7 @@ import models.Customer;
 @WebServlet(name = "SvEditCustomer", urlPatterns = {"/SvEditCustomer"})
 public class SvEditCustomer extends HttpServlet {
     
-        // appel à la classe controller
+    // appel à la classe controller
     Controller control = new Controller();  
 
 
@@ -41,7 +38,7 @@ public class SvEditCustomer extends HttpServlet {
         HttpSession misession = request.getSession();
         misession.setAttribute("custEdition", cust);
         
-        System.out.println("le customer est" + cust.getCustomerName());  
+        System.out.println("le customer est " + cust.getCustomerName());  
         
         response.sendRedirect("editCustomer.jsp"); 
         
@@ -55,24 +52,29 @@ public class SvEditCustomer extends HttpServlet {
             throws ServletException, IOException {
         // le parametre à passer est le name="" de customerName en editCustomer.jsp
         
-        String customerNumber = request.getParameter("customerNumberId");
-        String customerName = request.getParameter("customerNameId"); // customerName changé par customerNameId
-        String contactLastName = request.getParameter("contactLastName");
-        String contactFirstName =request.getParameter("contactFirstName");
-        String phone= request.getParameter("phone");
-        String addressLine1= request.getParameter("addressLine1");
-        String addressLine2= request.getParameter("addressLine2");
-        String city= request.getParameter("city");
-        String state= request.getParameter("state");
-        String postalCode= request.getParameter("postalCode");
-        String country= request.getParameter("country");
-        String creditLimit= request.getParameter("creditLimit");
+        int customerNumber = Integer.parseInt(request.getParameter("customerNumberMod"));
+        String customerName = request.getParameter("customerNameIdEdit"); // customerName changé par customerNameId
+        String contactLastName = request.getParameter("contactLastNameEdit");
+        String contactFirstName =request.getParameter("contactFirstNameEdit");
+        String phone= request.getParameter("phoneEdit");
+        String addressLine1= request.getParameter("addressLine1Edit");
+        String addressLine2= request.getParameter("addressLine2Edit");
+        String city= request.getParameter("cityEdit");
+        String state= request.getParameter("stateEdit");
+        String postalCode= request.getParameter("postalCodeEdit");
+        String country= request.getParameter("countryEdit");
+        float creditLimit= Float.parseFloat(request.getParameter("creditLimitEdit"));
+        int salesRepEmployeeNumber = Integer.parseInt(request.getParameter("salesRepEmployeeNumberEdit"));
         
-        // custEdition vient de editCustomer.jsp (<%Customer cust=(Customer)request.getSession().getAttribute("custEdition"); %>)
+        
+        
+        
+        //misession.setAttribute("custEdition", cust);
+        // custEdition vient de la sesion et de editCustomer.jsp (<%Customer cust=(Customer)request.getSession().getAttribute("custEdition"); %>)
         /// el atributo es el nom del usuario
         Customer cust = (Customer)request.getSession().getAttribute("custEdition");
                       
-        cust.setCustomerNumber(0);      
+        cust.setCustomerNumber(customerNumber);      
         cust.setCustomerName(customerName);
         cust.setContactLastName(contactLastName);
         cust.setContactFirstName(contactFirstName);
@@ -83,13 +85,22 @@ public class SvEditCustomer extends HttpServlet {
         cust.setState(state);
         cust.setPostalCode(postalCode);
         cust.setCountry(country);
-        cust.setCreditLimit(0);
-        //cust.setSalesRepEmployeeNumber(salesRepEmployeeNumber);
+        cust.setCreditLimit(creditLimit);
+        //cust.setSalesRepEmployeeNumber(salesRepEmployeeNumber);  //Comment la caster  to Employee?? 
+        
+
+
+        System.out.println("le get customer Num est " + cust.getCustomerNumber());                                                                                  
+        System.out.println("le get customer nom est " + cust.getCustomerName());
+        //System.out.println("le get customer nom est " + cust.getCustomerName());
+        
+        
 
         control.editerCustomer(cust);
         
+
+        ///
         response.sendRedirect("SvCustomer");  
-        
         
         
         
@@ -105,73 +116,3 @@ public class SvEditCustomer extends HttpServlet {
     }
 
 }
-
-//        String customerNumber = request.getParameter("customerNumberId"); 
-//        String nomCust = request.getParameter("customerNameId");
-//        String contctLstNme = request.getParameter("contactLastName");
-//        String contctFrstNme = request.getParameter("contactFirstName");
-//        String phn = request.getParameter("phone");
-//        String addrssLn1 = request.getParameter("addressLine1");
-//        String addrssLn2 = request.getParameter("addressLine2");
-//        String cty = request.getParameter("city");
-//        String stt = request.getParameter("state");
-//        String pstlCd = request.getParameter("postalCode");
-//        String cntry = request.getParameter("country");
-//        String crdtLmt = request.getParameter("creditLimit");
-//        
-//        // custEdition vient de editCustomer.jsp (<%Customer cust=(Customer)request.getSession().getAttribute("custEdition"); %>)
-//        /// el atributo es el nom del usuario
-//        Customer cust = (Customer)request.getSession().getAttribute("custEdition");
-//        
-//        cust.setCustomerNumber(0); 
-//        cust.setCustomerName(nomCust);
-//        cust.setContactLastName(contctLstNme);
-//        cust.setContactFirstName(contctFrstNme);
-//        cust.setPhone(phn);
-//        cust.setAddressLine1(addrssLn1);
-//        cust.setAddressLine2(addrssLn2);
-//        cust.setCity(cty);
-//        cust.setState(stt);
-//        cust.setPostalCode(pstlCd);
-//        cust.setCountry(cntry);
-//        cust.setCreditLimit(0);
-//        
-//        control.editerCustomer(cust);
-//        
-//        response.sendRedirect("SvCustomer");  
-
-
-
-
-
-//----------------
-
-//String customerNumber = request.getParameter("customerNumberId"); 
-//        String customerName = request.getParameter("customerNameId");
-//        String contactLastName = request.getParameter("contactLastName");
-//        String contactFirstName = request.getParameter("contactFirstName");
-//        String phone = request.getParameter("phone");
-//        String addressLine1 = request.getParameter("addressLine1");
-//        String addressLine2 = request.getParameter("addressLine2");
-//        String city = request.getParameter("city");
-//        String state = request.getParameter("state");
-//        String postalCode = request.getParameter("postalCode");
-//        String country = request.getParameter("country");
-//        String creditLimit = request.getParameter("creditLimit");
-//        
-//        // custEdition vient de editCustomer.jsp (<%Customer cust=(Customer)request.getSession().getAttribute("custEdition"); %>)
-//        /// el atributo es el nom del usuario
-//        Customer cust = (Customer)request.getSession().getAttribute("custEdition");
-//        
-//        cust.setCustomerNumber(0); 
-//        cust.setCustomerName(customerName);
-//        cust.setContactLastName(contactLastName);
-//        cust.setContactFirstName(contactFirstName);
-//        cust.setPhone(phone);
-//        cust.setAddressLine1(addressLine1);
-//        cust.setAddressLine2(addressLine2);
-//        cust.setCity(city);
-//        cust.setState(state);
-//        cust.setPostalCode(postalCode);
-//        cust.setCountry(country);
-//        cust.getCreditLimit();

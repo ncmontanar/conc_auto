@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import models.Customer;
+import models.Employee;
 import models.Product;
 
 
@@ -18,7 +19,7 @@ public class PersistenceController {
     
     CustomerJpaController customrJPA = new CustomerJpaController();
     
-//    EmployeeJpaController emplyeJPA = new EmployeeJpaController();
+    EmployeeJpaController emplyeJPA = new EmployeeJpaController();
     
 //    OfficeJpaController offcJPA = new OfficeJpaController();
     
@@ -44,10 +45,22 @@ public class PersistenceController {
         pdtoJPA.create(prodt);
     }
 
-    // vient de controller :  public ArrayList <Customer> getCustomers
+    // vient de controller :  public List <Customer> getCustomers
     public List<Customer> getCustomers() {
         return customrJPA.findCustomerEntities();
     }
+    
+    //vient de controller :  public boolean valideraccess(String email, String extension)
+    public List<Employee> getEmployees() {
+        return emplyeJPA.findEmployeeEntities();
+    }
+    
+    //
+    public List<Product> getProducts() {
+        return pdtoJPA.findProductEntities();  
+    }
+    
+
 
     // 3eme pas : vient de controller :  public void effacerCustomer(int customerNumber
 
@@ -74,8 +87,36 @@ public class PersistenceController {
             Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    //3.3 : vient de controller  : public void effacerProduct(int productCode)
+
+    public void effacerProduct(int productCode) {
+        try {
+            pdtoJPA.destroy(productCode);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+
+    }
+    
+    // 3eme pas : vient de controller :  emenerProduit(int productCode)
+    public Product emenerProduit(int productCode) {
+        return pdtoJPA.findProduct(productCode);
+    }
+    
+    
+    ///3eme pas : vient de controller :  public void editerProduit(Product pdrt) {
+    public void editerProduit(Product pdrt) {
+        try {
+            pdtoJPA.edit(pdrt);        
+        } catch (Exception ex) {
+            Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+
 
     
-    
-    
+
 }

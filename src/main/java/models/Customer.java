@@ -196,7 +196,7 @@ public class Customer implements Serializable{
     public void setPaymentsList(List<Payment> paymentsList) {
         this.paymentsList = paymentsList;
     }
-    
+
 
    
 }

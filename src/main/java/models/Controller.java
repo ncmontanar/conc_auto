@@ -15,13 +15,14 @@ public class Controller {
     
     
     //on va creer un client -1 qu'appelle à la persistence
-    public void creerCustomer(String customerName, String contactLastName, String contactFirstName, String phone, String addressLine1, String addressLine2, String city, String state, String postalCode, String country, int creditLimit){
-    
+
+    public void creerCustomer(String customerName, String contactLastName, String contactFirstName, String phone, String addressLine1, String addressLine2, String city, String state, String postalCode, String country, float creditLimit, int salesRepEmployeeNumber) {    
+
         //Customer cust = new Customer(customerNumber, customerName,contactLastName, contactFirstName,phone,addressLine1,addressLine2, city, state, postalCode, country, creditLimit,  salesRepEmployeeNumber,ordersList, paymentsList); // Employee salesRepEmployeeNumber, List<Order> ordersList, List<Payment> paymentsList
         // celuici vient de doGet de SvCustomer
 
-        Customer cust = new Customer();                 // Employee salesRepEmployeeNumber, List<Order> ordersList, List<Payment> paymentsList
-        cust.setCustomerNumber(0);
+        Customer cust = new Customer();                 
+        //cust.setCustomerNumber(0);
         cust.setCustomerName(customerName);
         cust.setContactLastName(contactLastName);
         cust.setContactFirstName(contactFirstName);
@@ -32,37 +33,46 @@ public class Controller {
         cust.setState(state);
         cust.setPostalCode(postalCode);
         cust.setCountry(country);
-        cust.setCreditLimit(0); 
+        cust.setCreditLimit(creditLimit);
+        //cust.setSalesRepEmployeeNumber(salesRepEmployeeNumber);
 
         //       
         controlPersis.creerCustomer(cust);
-        
+
     }
-
-    //on va creer un produit -1 qu'appelle à la persistence
-
-    public void creerProduit(String productName, String productScale, String productVendor, String productDescription, String quantityInStock, float buyPrice, float MSRP){
+        
     
-    Product prodt = new Product();
-    prodt.setProductCode(0);
-    prodt.setProductName(productName);
-    prodt.setProductScale(productScale);
-    prodt.setProductVendor(productVendor);
-    prodt.setProductDescription(productDescription);
-    prodt.setQuantityInStock(quantityInStock);
-    prodt.setBuyPrice(buyPrice);
-    prodt.setMSRP(MSRP);
-    
-   controlPersis.creerProduit(prodt);
+
+    //2.2 on va creer un produit -1 qu'appelle à la persistence
+    public void creerProduit(String productName, String productLine, String productScale, String productVendor, String productDescription, String quantityInStock, float buyPrice, float MSRP){
+        
+        // celuici vient de doGet de SvProduct
+        Product prodt = new Product();
+        //prodt.setProductCode(0);
+        prodt.setProductName(productName);
+        //prodt.setProductLine(productLine);
+        prodt.setProductScale(productScale);
+        prodt.setProductVendor(productVendor);
+        prodt.setProductDescription(productDescription);
+        prodt.setQuantityInStock(quantityInStock);
+        prodt.setBuyPrice(buyPrice);
+        prodt.setMSRP(MSRP);
+
+       controlPersis.creerProduit(prodt);
     }       
 
-    // celuici vient de doPost de SvCustomer
+    // celuici vient de doGet de SvCustomer pour l'affichage
     public List <Customer> getCustomers() {
         return controlPersis.getCustomers();
     }
+    // celuici vient de doGet de SvProduct pour l'affichage
+    public List<Product> getProducts() {
+        return controlPersis.getProducts();
+    }    
     
-// 2eme pas : celuici vient de doPost de SvSuppCustomer
-
+    
+    
+    // 2eme pas : celuici vient de doPost de SvSuppCustomer
     public void effacerCustomer(int customerNumber) {
         controlPersis.effacerCustomer(customerNumber);
 
@@ -71,11 +81,53 @@ public class Controller {
     public Customer emenerCustomer(int customerNumber) {
           return controlPersis.emenerCustomer(customerNumber);
     }
-    
     // 2eme pas : celuici vient de doPost de SvEditCustomer
     public void editerCustomer(Customer cust) {
         controlPersis.editerCustomer(cust);
     }
+    
+    //2eme pas : infos qui viennent du SvLogin/doPost  ---1. trer el usuario y contrasena; 2. buscar el ususario en cuestion en la bdd 3. encontrar si existe 4. verificar si la contrasena es correcta
+    public boolean valideraccess(String email, String extension) {
+        
+        boolean ingressOk = false;
+        
+        List <Employee> listEmployeesAcss = new ArrayList<Employee>(); 
+        listEmployeesAcss = controlPersis.getEmployees();
+        
+        for(Employee emp : listEmployeesAcss){
+            if(emp.getEmail().equals(email)){                               // email changé de EmailLog __ vienent du doPost du SvLogin
+                if(emp.getExtension().equals(extension)){                   // extension changé de PasswordLog __ vienent du doPost du SvLogin
+                    ingressOk = true;
+                }
+                else{
+                    ingressOk = false;
+                }
+                    
+            }
+        }       
+        return ingressOk;
+
+    }
+    
+    // 3.2 celuici vient de doPost de SvSuppProduit
+    public void effacerProduct(int productCode) {
+        controlPersis.effacerProduct(productCode);
+    }
+
+    /// 3.2 celuici vient de doGet de SvEditProduit (pour editProduit)
+    public Product emenerProduit(int productCode) {
+        return controlPersis.emenerProduit(productCode);
+    }
+    
+    ///3.3  celuici vient de doPost de SvEditProduit
+
+    public void editerProduit(Product pdrt) {
+        controlPersis.editerProduit(pdrt);
+    }
+
+  
+    
+    
 
 
     
