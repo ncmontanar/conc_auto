@@ -30,9 +30,8 @@
                         <div class="p-5">
                             
                             <!-- es el formulario el de debe llamar   -->
-
                             <form class="user" action="SvEditCustomer" method="POST"> 
-                <!-- ** form-group row sirve para dar orden a las columnas : como esta agrupado el formulario -->
+                            <!-- ** form-group row sirve para dar orden a las columnas : como esta agrupado el formulario -->
 
                                 <div class="form-group "> 
                                                                         
@@ -126,13 +125,10 @@
                             <hr>
                             
                             <!--A utiliser si besoin-->
-                            
-<!--                            <div class="text-center">
+<!--                        <div class="text-center">
                                 <a class="small" href="forgot-password.html">Forgot Password?</a>
-                            </div>
-                            <div class="text-center">
-                                <a class="small" href="login.html">Already have an account? Login!</a>
                             </div>-->
+
                         </div>
                     </div>
                 </div>

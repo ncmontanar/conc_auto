@@ -87,8 +87,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Gestion d'agences</h6>
                         <!--ici on gère les butons du collapse-->
-                        <a class="collapse-item" href="utilities-color.html">Consulter Etat d'agence</a>
-                        <a class="collapse-item" href="utilities-border.html">Ajouter nouvelle agence</a>
+                        <a class="collapse-item" href="SvOffice">Consulter Etat d'agence</a>
+                        <a class="collapse-item" href="chargeOffice.jsp">Ajouter nouvelle agence</a>
 <!--                        <a class="collapse-item" href="utilities-animation.html">Modiifer agence</a>
                         <a class="collapse-item" href="utilities-other.html">Supprimer agence</a>-->
                     </div>

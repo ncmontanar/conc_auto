@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import models.Customer;
 import models.Employee;
+import models.Office;
 import models.Product;
 
 
@@ -21,7 +22,7 @@ public class PersistenceController {
     
     EmployeeJpaController emplyeJPA = new EmployeeJpaController();
     
-//    OfficeJpaController offcJPA = new OfficeJpaController();
+    OfficeJpaController offcJPA = new OfficeJpaController();
     
 //    OrderJpaController ordeJPA = new OrderJpaController();
     
@@ -43,8 +44,9 @@ public class PersistenceController {
     //on va creer un Produit -2.3
     public void creerProduit(Product prodt){
         pdtoJPA.create(prodt);
-    }
-
+    }    
+    
+    
     // vient de controller :  public List <Customer> getCustomers
     public List<Customer> getCustomers() {
         return customrJPA.findCustomerEntities();
@@ -59,6 +61,8 @@ public class PersistenceController {
     public List<Product> getProducts() {
         return pdtoJPA.findProductEntities();  
     }
+    
+
     
 
 
@@ -96,8 +100,6 @@ public class PersistenceController {
         } catch (NonexistentEntityException ex) {
             Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-
     }
     
     // 3eme pas : vient de controller :  emenerProduit(int productCode)
@@ -112,11 +114,45 @@ public class PersistenceController {
             pdtoJPA.edit(pdrt);        
         } catch (Exception ex) {
             Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        }  
+    }
+    
+    //Off_3.2 creation de mtdo creerOffice
+    public void creerOffice(Office offic) {
+        offcJPA.create(offic);
+    }
+    
+    //Off_4.5 vient de controller pour appeler la bdd
+    public List<Office> getOffices() {
+      return offcJPA.findOfficeEntities();
     }
 
 
+    //Off_4.10 creation de effacerOffice qui vient de controller : public void effacerOffice(String officeCode)
+    public void effacerOffice(String officeCode) {
+        try {
+            offcJPA.destroy(officeCode);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    //Off_4.13 creation de emenerOffice qui vient de controller et sert à lister
+    public Office emenerOffice(String officeCode) {
+        return offcJPA.findOffice(officeCode);
+    }
+    
+    ///Off_4.21   creation de mtd editerOffice qui va appeller la JPA
+    public void editerOffice(Office offic) {
+        try {
+            offcJPA.edit(offic);
+        } catch (Exception ex) {
+            Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+
+    
     
 
 }

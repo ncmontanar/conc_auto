@@ -6,6 +6,20 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <body id="page-top">
+    
+    <!-- Valider notre session--> <!-- request la sesion qui nous a ammené jusqu'à ici -->
+    <!--2. l_attribute EmailLog vient deSvLogin  dans la creation de la session -->
+    <% HttpSession misession = request.getSession();
+        String employeeSession = (String)request.getSession().getAttribute("EmailLog");
+        //verifie si le log est correct - si cest correct laisse passer
+        if(employeeSession == null){
+            response.sendRedirect("noLogin.jsp");   //à creer noLogin
+        }
+ 
+    %>    
+    
+    
+    
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -29,8 +43,7 @@
 
             <!-- Nav Item - TABLEAU DE CONTROLE -->
             <li class="nav-item active">
-                <!--ATTENTION ICI LE LIEN DE dashboard href="index.html-->
-                <a class="nav-link" href="#">  
+                <a class="nav-link" href="index.jsp">  
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>TABLEAU DE CONTROLE</span></a>
             </li>
@@ -56,8 +69,8 @@
                         <h6 class="collapse-header">Gestion des stocks:</h6>
                          <!--ici on gère les butons du collapse-->
                         <a class="collapse-item" href="chargeVoiture.jsp">Charger unité</a>
-                        <a class="collapse-item" href="cards.html">Decharger unité</a>
-                        <a class="collapse-item" href="cards.html">Modifier unité</a>
+                        <a class="collapse-item" href="SvProduct">Consulter Stocks</a>
+<!--                        <a class="collapse-item" href="cards.html">Modifier unité</a>-->
                     </div>
                 </div>
             </li>
@@ -74,10 +87,10 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Gestion d'agences</h6>
                         <!--ici on gère les butons du collapse-->
-                        <a class="collapse-item" href="utilities-color.html">Consulter Etat d'agence</a>
-                        <a class="collapse-item" href="utilities-border.html">Ajouter nouvelle agence</a>
-                        <a class="collapse-item" href="utilities-animation.html">Modiifer agence</a>
-                        <a class="collapse-item" href="utilities-other.html">Supprimer agence</a>
+                        <a class="collapse-item" href="SvOffice">Consulter Etat d'agence</a>
+                        <a class="collapse-item" href="chargeOffice.jsp">Ajouter nouvelle agence</a>
+<!--                        <a class="collapse-item" href="utilities-animation.html">Modiifer agence</a>
+                        <a class="collapse-item" href="utilities-other.html">Supprimer agence</a>-->
                     </div>
                 </div>
             </li>
@@ -99,11 +112,11 @@
                 </a>
                 <div id="collapseRh" class="collapse" aria-labelledby="headingRh" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Gestion des ressources humaines</h6>
-                        <a class="collapse-item" href="utilities-color.html">Consulter Ensemble de personnel</a>
-                        <a class="collapse-item" href="utilities-border.html">Ajouter nouvel collaborateur</a>
-                        <a class="collapse-item" href="utilities-animation.html">Modifer collaborateur</a>
-                        <a class="collapse-item" href="utilities-other.html">Supprimer collaborateur</a>
+                        <h6 class="collapse-header">Ressources Humaines</h6>
+                        <a class="collapse-item" href="utilities-color.html">Ensemble de personnel</a>
+                        <a class="collapse-item" href="utilities-border.html">Nouveau collaborateur</a>
+<!--                        <a class="collapse-item" href="utilities-animation.html">Modifer collaborateur</a>
+                        <a class="collapse-item" href="utilities-other.html">Supprimer collaborateur</a>-->
                     </div>
                 </div>
             </li>
@@ -120,8 +133,8 @@
                         <h6 class="collapse-header">Gestion des Clients</h6>
                         <a class="collapse-item" href="SvCustomer">Consulter Base Clients</a>
                         <a class="collapse-item" href="chargeCustomer.jsp">Ajouter nouveau client</a>
-                        <a class="collapse-item" href="utilities-animation.html">Modifer client</a>
-                        <a class="collapse-item" href="utilities-other.html">Supprimer client</a>
+<!--                        <a class="collapse-item" href="utilities-animation.html">Modifer client</a>
+                        <a class="collapse-item" href="utilities-other.html">Supprimer client</a>-->
                     </div>
                 </div>
             </li>
@@ -136,10 +149,10 @@
                 <div id="collapseOrds" class="collapse" aria-labelledby="headingOrds" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Gestion des Commandes</h6>
-                        <a class="collapse-item" href="utilities-color.html">Consulter historique commandes</a>
-                        <a class="collapse-item" href="utilities-border.html">Ajouter nouvelle commande</a>
-                        <a class="collapse-item" href="utilities-animation.html">Modifer commande</a>
-                        <a class="collapse-item" href="utilities-other.html">Supprimer commande</a>
+                        <a class="collapse-item" href="utilities-color.html">Historique commandes</a>
+                        <a class="collapse-item" href="utilities-border.html">Nouvelle commande</a>
+<!--                        <a class="collapse-item" href="utilities-animation.html">Modifer commande</a>
+                        <a class="collapse-item" href="utilities-other.html">Supprimer commande</a>-->
                     </div>
                 </div>
             </li>
@@ -329,7 +342,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=request.getSession().getAttribute("EmailLog")%></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -365,11 +378,8 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    
-                    <!-- id="Generate Report" EFFACEE  -->
+
                     <div class="d-sm-flex align-items-center justify-content-between mb-4"> 
                         <h1 class="h3 mb-0 text-gray-800">Système de gestion de la CA AutoFuture</h1>
                     </div>
-<!--                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
-                  
+               

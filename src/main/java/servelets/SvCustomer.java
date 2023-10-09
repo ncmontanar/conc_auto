@@ -33,7 +33,7 @@ public class SvCustomer extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-//creer un metode : devolver la lista de ususarios en la bdd
+        //creer un metode : devolver la lista de ususarios en la bdd
         List<Customer> listeCustomers = new ArrayList<Customer>();
         listeCustomers = control.getCustomers();
         
@@ -42,18 +42,18 @@ public class SvCustomer extends HttpServlet {
         misession.setAttribute("listeCustomers", listeCustomers);
         
         //control de registro en consola
-        System.out.println("customer: "+listeCustomers.get(0));
+        System.out.println("liste customer en SvCust: "+listeCustomers.get(0));
         
         
         response.sendRedirect("voirCustomer.jsp");    
     }
 
-    //ce doPost fait la recuperation des données de chargeCustomer.jsp
+    //1.1 ce doPost fait la recuperation des données de chargeCustomer.jsp
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        //le parametre est le meme id utilisé dans le formulaire chargeCustomer.jsp
+        //le parametre est le meme name utilisé dans le formulaire chargeCustomer.jsp
   
         //String customerNumber = request.getParameter("customerNumberId");
         String customerName = request.getParameter("customerNameId");

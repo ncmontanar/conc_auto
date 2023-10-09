@@ -30,17 +30,15 @@
                         <div class="p-5">
                             
                             <!-- es el formulario el de debe llamar   -->
-
-                            <form class="user" action="SvEditCustomer" method="POST"> <!-- cest bien SvEditCustomer ??? -->
-                <!-- ** form-group row sirve para dar orden a las columnas : como esta agrupado el formulario -->
+                            <form class="user" action="SvEditCustomer" method="POST"> 
+                            <!-- ** form-group row sirve para dar orden a las columnas : como esta agrupado el formulario -->
 
                                 <div class="form-group "> 
                                                                         
-<!--                                <div class="form-group">
-                                      <label for="InputCodevoiture">customerNumber</label>
-                                      <input type="text" class="form-control" id="customerNumberId" name="customerNumberId" aria-describedby="productlHelp" placeholder="customerNumber">
-                                      <small id="productlHelp" class="form-text text-muted">Pensez à bien identifier ... .</small>
-                                    </div>-->
+                                    <div class="form-group">
+                                      <label for="InputCodevoiture">Nom complet du client - pour contact :</label>
+                                      <input type="text" class="form-control" id="customerNumberMod" name="customerNumberMod" aria-describedby="productlHelp" placeholder="" readonly="readonly" value="<%=cust.getCustomerNumber()%>">
+                                    </div>
                                     
                                     <div class="form-group">
                                         <label for="InputNomCustomer">customerName</label>
@@ -90,12 +88,17 @@
                                     
                                     <div class="form-group">
                                       <label for="formGroupExampleInput2">country</label>
-                                      <input type="float" class="form-control" id="country" name="countryEdit" placeholder="country" value="<%=cust.getCountry()%>">
+                                      <input type="text" class="form-control" id="country" name="countryEdit" placeholder="country" value="<%=cust.getCountry()%>">
                                     </div>
 
                                     <div class="form-group">
                                       <label for="formGroupExampleInput2">creditLimit</label>
-                                      <input type="text" class="form-control" id="creditLimit" name="creditLimitEdit" placeholder="creditLimit" value="<%=cust.getCreditLimit()%>" >
+                                      <input type="float" step="0.01" class="form-control" id="creditLimit" name="creditLimitEdit" placeholder="creditLimit" value="<%=cust.getCreditLimit()%>" >
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                      <label for="formGroupExampleInput2">salesRepEmployeeNumber</label>
+                                      <input type="number" class="form-control" id="salesRepEmployeeNumber" name="salesRepEmployeeNumberEdit" placeholder="salesRepEmployeeNumber" value="<%=cust.getSalesRepEmployeeNumber()%>">
                                     </div>
                                                                  
                                     <hr>
@@ -122,13 +125,10 @@
                             <hr>
                             
                             <!--A utiliser si besoin-->
-                            
-<!--                            <div class="text-center">
+<!--                        <div class="text-center">
                                 <a class="small" href="forgot-password.html">Forgot Password?</a>
-                            </div>
-                            <div class="text-center">
-                                <a class="small" href="login.html">Already have an account? Login!</a>
                             </div>-->
+
                         </div>
                     </div>
                 </div>

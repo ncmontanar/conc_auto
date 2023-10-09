@@ -75,8 +75,7 @@
                                     <td><%=pdrt.getQuantityInStock()%></td>
                                     <td><%=pdrt.getBuyPrice()%></td>
                                     <td><%=pdrt.getMSRP()%> </td>
-                                     
-                                    <!-boton elim (formu_1) + boton add (form_2)-->
+                                    <!--boton elim (formu_1) + boton add (form_2)-->
                                     <td style="display:flex;width:230px;">
 
 
@@ -94,7 +93,7 @@
                                                 <i class="fas fa-solid fa-pencil-alt"></i> Editer
                                             </button>
                                         <input type="hidden" name="productNameNameEd" value="<%=pdrt.getProductCode() %>"> <!-- esto es para mandar el codigo al servelet ** name="id" fue cambiado por name="customerNumber" -->
-                                        <!-- este name="id" le cambiamos el nombre  name="customerNameIdEdit" productNameNameEd -->
+                                        
                                         </form>       
                                                     
                                     </td>    

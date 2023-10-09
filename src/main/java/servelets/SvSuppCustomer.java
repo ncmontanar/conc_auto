@@ -31,19 +31,18 @@ public class SvSuppCustomer extends HttpServlet {
     }
     
     ///mothode crée dans controller
-    // 1er pas : ce qu'on va effacer -- idSupp//customerNumber vient du parametre  name="idSupp" ou name="customerNumber"  du supprimer de voirCustomer.jsp
+    // 1er pas : ce qu'on va effacer -- id à Supp :customerNumber vient du parametre  name="idSupp" ou name="customerNumber"  du supprimer de voirCustomer.jsp
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
         int customerNumber = Integer.parseInt(request.getParameter("customerNumber"));
-        
+         // appel - la controller
         control.effacerCustomer(customerNumber);
         
-        // renvoie vers 
+        // renvoie vers SvCustomer pour faire l'affichage apres modification (doGet)
         response.sendRedirect("SvCustomer");
    
-      
     }
 
 

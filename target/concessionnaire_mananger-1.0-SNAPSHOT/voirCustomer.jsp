@@ -12,67 +12,61 @@
 <%@include file="components/header.jsp" %>
 <%@include file="components/bodypremierepart.jsp" %>
 
-<!--//vois si le title marche ici-->
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>voirCustomer</title>
-</head>
-
-<!--<h1> Voir la liste de clients </h1>-->
-
-
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid">  
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Voir Clients</h1>
+                    <!-- Page Heading -->                 
                     <p class="mb-4">Liste des clients actifs dans le Systeme. Si vous souhaitez charger un nouveau client, alllez au <a target="_blank"
                             href="chargeCustomer.jsp">Charger Client</a>.</p>
 
-                                        <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
+                    <!-- DataTales Example (notre table clients)-->
+                    <div class="card shadow mb-13">
+                        
                         <div class="card-header py-3">
-                           <!--<h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>-->
+                           <h6 class="m-0 font-weight-bold text-primary">DataBase</h6>
                         </div>
+                        
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTableClientes" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"> <!--attentionà l_id de la table-->
                                     <thead>
                                         <tr>
                                             <th>ID Client</th>                                            
-                                            <th>NomComp</th> 
+                                            <th>Nom Contact</th> 
                                             <th>Prenom</th>
-                                            <th>Nom de Famille</th>
+                                            <th>Nom</th>
                                             <th>Téléphone</th>
-                                            <th>Adresse 1</th>
-                                            <th>Adresse 2</th>
+                                            <th>Adresse</th>
+                                            <th>Adresse (comp)</th>
                                             <th>Ville</th>
                                             <th>Département</th>
                                             <th>Code Postale</th>
                                             <th>Pays</th>
                                             <th>Plafond Credit</th>
-                                            <th style="width: 210px">Action : </th>
+                                            <th>Responsable</th>
+                                            <th style="width: 210px">Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>ID Client</th>   
-                                            <th>NomComp</th> 
+                                            <th>Nom Contact</th> 
                                             <th>Prenom</th>
-                                            <th>Nom de Famille</th>
+                                            <th>Nom</th>
                                             <th>Téléphone</th>
                                             <th>Adresse 1</th>
-                                            <th>Adresse 2</th>
+                                            <th>Adresse (comp)</th>
                                             <th>Ville</th>
                                             <th>Département</th>
                                             <th>Code Postale</th>
                                             <th>Pays</th>
                                             <th>Plafond Credit</th>
+                                            <th>Responsable</th>
                                             <th style="width: 210px">Accion</th>
                                         </tr>
                                     </tfoot>
-                                    <!--/// Ajouter les champs de la bdd par lien java in tbody-->
-                                    
+                                    <!--/// Ajouter les champs de la table Customer par lien java in tbody que vi-->
+                                    <!--/// que viennent de  SvCustomer et SvEditCustomer -->
                                    <%
                                    List<Customer> listeCustomers = (List)request.getSession().getAttribute("listeCustomers");
                                    %>
@@ -91,26 +85,26 @@
                                             <td><%=cust.getPostalCode()%></td>
                                             <td><%=cust.getCountry()%></td>
                                             <td><%=cust.getCreditLimit()%></td>
-                                            
-                                            <!-boton elim (formu_1) + boton add (form_2)-->
+                                            <td><%=cust.getSalesRepEmployeeNumber()%></td>
+                                            <!--boton elim (formu_1) + boton add (form_2)-->
                                             <td style="display:flex;width:230px;">
-                                                
-                                                <form name="Supprimer" action="SvSuppCustomer" method="POST"> <!--Esto es para enviar codigo al Sevelet-->
-                                                    <button type="submit" class="btn btn-primary btn-user btn-block" style="background-color:red; margin-right:5px;">
-                                                        <i class="fas fa-solid fa-trash-alt"></i> Supprimer  <!--fa-solid -->
-                                                    </button>
-                                                    <input type="hidden" name="customerNumber" value="<%=cust.getCustomerNumber()%>"> <!-- esto es para mandar el codigo al servelet -->
-                                                </form>
-                                                
-                                               
-                                                <form name="Editer" action="SvEditCustomer" method="GET"> <!-- Esto es para enviar codigo al Sevelet -->
-                                                    <button type="submit" class="btn btn-primary btn-user btn-block"; style="margin-left: 5px;">
+ 
+                                                <form name="Editer" action="SvEditCustomer" method="GET"> <!-- Esto es para enviar codigo al Sevelet SvEditCustomer -->
+                                                    <button type="submit" class="btn btn-primary btn-user btn-block"; style="margin-rigth: 5px;">
                                                         <i class="fas fa-solid fa-pencil-alt"></i> Editer
                                                     </button>
                                                 <input type="hidden" name="customerNameIdEdit" value="<%=cust.getCustomerNumber()%>"> <!-- esto es para mandar el codigo al servelet ** name="id" fue cambiado por name="customerNumber" -->
                                                 <!-- este name="id" le cambiamos el nombre  name="customerNameIdEdit" -->
                                                 </form>       
                                                 
+                                                <!--Supprimer -->
+                                                <form name="Supprimer" action="SvSuppCustomer" method="POST"> <!--Esto es para enviar codigo al Sevelet-->
+                                                    <button type="submit" class="btn btn-primary btn-user btn-block" style="background-color:red; margin-left:5px;">
+                                                        <i class="fas fa-solid fa-trash-alt"></i> Supprimer  
+                                                    </button>
+                                                    <input type="hidden" name="customerNumber" value="<%=cust.getCustomerNumber()%>"> <!-- esto es para mandar el codigo al servelet -->
+                                                </form>
+
                                             </td>                                    
                                         </tr>
                                         
@@ -126,4 +120,6 @@
 
             </div>
             <!-- End of Main Content -->
+            
+            
 <%@include file="components/piedfinale.jsp" %>

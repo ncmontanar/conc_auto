@@ -23,14 +23,15 @@
  
                     <div class="col-lg-7">
                         <div class="p-5">
-
+                            
+                            <!-- es el formulario el de debe llamar   -->
                             <form class="user" action="SvProduct" method="POST">
 
                                 <div class="form-group " > 
                                     
                                     <div class="form-group "> 
                                                                         
-<!--                                    <div class="form-group">
+<!--                                  <div class="form-group">
                                       <label for="InputCodevoiture">Code de l'unité - voiture</label>
                                       <input type="text" class="form-control" id="productCodeId" name="productCodeId" aria-describedby="productlHelp" placeholder="Saisissez le code du produit">
                                       <small id="productlHelp" class="form-text text-muted">Pensez à bien identifier ... .</small>
@@ -38,69 +39,60 @@
                                     
                                     <div class="form-group">
                                         <label for="InputNomVoiture">Nom de l'unité - voiture</label>
-                                        <input type="text" class="form-control" id="productNameId" name="productName" placeholder="Saisissez le product Name">
+                                        <input type="text" class="form-control" id="productNameId" name="productNameName" placeholder="ie. 1952 Alpine Renault 1300">
+                                        <small id="productlHelp" class="form-text text-muted">Pensez à bien identifier  le produit... .</small>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="InputNomVoiture">Ligne du produit</label>
+                                        <input type="text" class="form-control" id="productLineId" name="productLineName" placeholder="">
                                     </div>
                                     
                                     <div class="form-group">
-                                      <label for="formGroupExampleInput2">productScale</label>
-                                      <input type="text" class="form-control" id="productScale" name="productScale" placeholder="productScale">
+                                      <label for="formGroupExampleInput2">Taille</label>
+                                      <input type="text" class="form-control" id="productScaleId" name="productScale" placeholder="">
                                     </div>   
                                     
                                      <div class="form-group">
-                                      <label for="formGroupExampleInput2">productVendor</label>
-                                      <input type="text" class="form-control" id="productVendor" name="productVendor" placeholder="productVendor">
+                                      <label for="formGroupExampleInput2">Fournisseur</label>
+                                      <input type="text" class="form-control" id="productVendorid" name="productVendor" placeholder="ie. Classic Metal Creations">
                                     </div>    
                                     
                                      <div class="form-group">
-                                      <label for="formGroupExampleInput2">productDescription</label>
-                                      <input type="text" class="form-control" id="productDescription" name="productDescription" placeholder="productDescription">
+                                      <label for="formGroupExampleInput2">Description du produit</label>
+                                      <input type="text" class="form-control" id="productDescriptionid" name="productDescription" placeholder="">
                                     </div> 
                                     
                                      <div class="form-group">
-                                      <label for="formGroupExampleInput2">quantityInStock</label>
-                                      <input type="text" class="form-control" id="quantityInStock" name="quantityInStock" placeholder="quantityInStock">
+                                      <label for="formGroupExampleInput2">Stock disponible</label>
+                                      <input type="text" class="form-control" id="quantityInStockid" name="quantityInStock" placeholder="">
                                     </div>       
                                     
                                     <div class="form-group">
-                                      <label for="formGroupExampleInput2">buyPrice</label>
-                                      <input type="text" class="form-control" id="buyPrice" name="buyPrice" placeholder="buyPrice">
+                                      <label for="formGroupExampleInput3">Prix d'achat</label>
+                                      <input type="float" value="0" step="0.01" class="form-control" id="buyPriceId" name="buyPrice" placeholder="en €">
+                                      <small id="productlHelp" class="form-text text-muted">Pour les prix non fermés, pensez à utiliser le point comme séparatur</small>
                                     </div> 
                                     
                                     <div class="form-group">
-                                      <label for="formGroupExampleInput2">MSRP</label>
-                                      <input type="text" class="form-control" id="MSRP" name="MSRP" placeholder="MSRP">
+                                      <label for="formGroupExampleInput4">Prix de vente conseillé</label>
+                                      <input type="float" value="0" step="0.01" class="form-control" id="MSRPId" name="MSRP" placeholder="en €">
+                                       <small id="productlHelp" class="form-text text-muted">Pour les prix non fermés, pensez à utiliser le point comme séparatur</small>
                                     </div>
                                     <hr>
-<!--                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password">
-                                    </div>
-                                </div>-->
+
+                                </div>
                                 
                                 <!--ici on ajoute les liens avc les lines de produit et les listes de ordres-->
                                 
-                                 <button class="btn btn-primary btn-user btn-block" type="submit">
+                                <button class="btn btn-primary btn-user btn-block" type="submit">
                                     Enregistrer Unité - Voiture
                                 </button>
-                                </a>
 
                                 <hr>
                             </form>
                             <hr>
                             
-                            <!--A utiliser si besoin-->
-                            
-<!--                            <div class="text-center">
-                                <a class="small" href="forgot-password.html">Forgot Password?</a>
-                            </div>
-                            <div class="text-center">
-                                <a class="small" href="login.html">Already have an account? Login!</a>
-                            </div>-->
                         </div>
                     </div>
                 </div>

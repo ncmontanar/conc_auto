@@ -38,7 +38,7 @@ public class SvEditCustomer extends HttpServlet {
         HttpSession misession = request.getSession();
         misession.setAttribute("custEdition", cust);
         
-        System.out.println("le customer est " + cust.getCustomerName());  
+        System.out.println("le customer en SvEditCust est " + cust.getCustomerName());  
         
         response.sendRedirect("editCustomer.jsp"); 
         
@@ -46,11 +46,11 @@ public class SvEditCustomer extends HttpServlet {
         
     }
 
-        // il recoit les donnees nécessaires à éditer : customerName, contactLastName...
+     // il recoit les donnees nécessaires à éditer : customerName, contactLastName...
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // le parametre à passer est le name="" de customerName en editCustomer.jsp
+        // le parametre à passer est le name="" de de chaque input en editCustomer.jsp
         
         int customerNumber = Integer.parseInt(request.getParameter("customerNumberMod"));
         String customerName = request.getParameter("customerNameIdEdit"); // customerName changé par customerNameId
@@ -69,7 +69,7 @@ public class SvEditCustomer extends HttpServlet {
         
         
         
-        //misession.setAttribute("custEdition", cust);
+        // aporter la sesion : misession.setAttribute("custEdition", cust);
         // custEdition vient de la sesion et de editCustomer.jsp (<%Customer cust=(Customer)request.getSession().getAttribute("custEdition"); %>)
         /// el atributo es el nom del usuario
         Customer cust = (Customer)request.getSession().getAttribute("custEdition");
@@ -89,24 +89,14 @@ public class SvEditCustomer extends HttpServlet {
         //cust.setSalesRepEmployeeNumber(salesRepEmployeeNumber);  //Comment la caster  to Employee?? 
         
 
-
         System.out.println("le get customer Num est " + cust.getCustomerNumber());                                                                                  
         System.out.println("le get customer nom est " + cust.getCustomerName());
-        //System.out.println("le get customer nom est " + cust.getCustomerName());
-        
-        
 
+        // 
         control.editerCustomer(cust);
-        
-
         ///
         response.sendRedirect("SvCustomer");  
-        
-        
-        
-        
-        
-        
+    
     }
 
 

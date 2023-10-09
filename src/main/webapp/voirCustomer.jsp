@@ -66,7 +66,7 @@
                                         </tr>
                                     </tfoot>
                                     <!--/// Ajouter les champs de la table Customer par lien java in tbody que vi-->
-                                    <!--/// que viennent de  SvEditCustomer -->
+                                    <!--/// que viennent de  SvCustomer et SvEditCustomer -->
                                    <%
                                    List<Customer> listeCustomers = (List)request.getSession().getAttribute("listeCustomers");
                                    %>
@@ -86,26 +86,25 @@
                                             <td><%=cust.getCountry()%></td>
                                             <td><%=cust.getCreditLimit()%></td>
                                             <td><%=cust.getSalesRepEmployeeNumber()%></td>
-                                            
-                                            <!-boton elim (formu_1) + boton add (form_2)-->
+                                            <!--boton elim (formu_1) + boton add (form_2)-->
                                             <td style="display:flex;width:230px;">
-                                                
-                                                <form name="Supprimer" action="SvSuppCustomer" method="POST"> <!--Esto es para enviar codigo al Sevelet-->
-                                                    <button type="submit" class="btn btn-primary btn-user btn-block" style="background-color:red; margin-right:5px;">
-                                                        <i class="fas fa-solid fa-trash-alt"></i> Supprimer  
-                                                    </button>
-                                                    <input type="hidden" name="customerNumber" value="<%=cust.getCustomerNumber()%>"> <!-- esto es para mandar el codigo al servelet -->
-                                                </form>
-                                                
-                                               
-                                                <form name="Editer" action="SvEditCustomer" method="GET"> <!-- Esto es para enviar codigo al Sevelet -->
-                                                    <button type="submit" class="btn btn-primary btn-user btn-block"; style="margin-left: 5px;">
+ 
+                                                <form name="Editer" action="SvEditCustomer" method="GET"> <!-- Esto es para enviar codigo al Sevelet SvEditCustomer -->
+                                                    <button type="submit" class="btn btn-primary btn-user btn-block"; style="margin-rigth: 5px;">
                                                         <i class="fas fa-solid fa-pencil-alt"></i> Editer
                                                     </button>
                                                 <input type="hidden" name="customerNameIdEdit" value="<%=cust.getCustomerNumber()%>"> <!-- esto es para mandar el codigo al servelet ** name="id" fue cambiado por name="customerNumber" -->
                                                 <!-- este name="id" le cambiamos el nombre  name="customerNameIdEdit" -->
                                                 </form>       
-                                                    
+                                                
+                                                <!--Supprimer -->
+                                                <form name="Supprimer" action="SvSuppCustomer" method="POST"> <!--Esto es para enviar codigo al Sevelet-->
+                                                    <button type="submit" class="btn btn-primary btn-user btn-block" style="background-color:red; margin-left:5px;">
+                                                        <i class="fas fa-solid fa-trash-alt"></i> Supprimer  
+                                                    </button>
+                                                    <input type="hidden" name="customerNumber" value="<%=cust.getCustomerNumber()%>"> <!-- esto es para mandar el codigo al servelet -->
+                                                </form>
+
                                             </td>                                    
                                         </tr>
                                         

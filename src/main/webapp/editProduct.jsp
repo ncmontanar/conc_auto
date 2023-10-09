@@ -12,6 +12,8 @@
 
 <h3> Modification et mise à jour d'une unité dans le Stock </h3>
 
+<!--amener la session complète :  vient de SvEditProduct = misession.setAttribute(" "); -->
+
 <%Product pdrt =(Product)request.getSession().getAttribute("prodEdition");%>
 
 <body class="bg-gradient-primary">

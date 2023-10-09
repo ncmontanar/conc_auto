@@ -85,10 +85,9 @@
                                 
                                 <!--ici on ajoute les liens avc les lines de produit et les listes de ordres-->
                                 
-                                 <button class="btn btn-primary btn-user btn-block" type="submit">
+                                <button class="btn btn-primary btn-user btn-block" type="submit">
                                     Enregistrer Unité - Voiture
                                 </button>
-                                </a> <--à quoi-->
 
                                 <hr>
                             </form>

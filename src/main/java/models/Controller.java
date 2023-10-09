@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 public class Controller {
     
     PersistenceController controlPersis = new PersistenceController();
@@ -41,8 +42,6 @@ public class Controller {
 
     }
         
-    
-
     //2.2 on va creer un produit -1 qu'appelle à la persistence
     public void creerProduit(String productName, String productLine, String productScale, String productVendor, String productDescription, String quantityInStock, float buyPrice, float MSRP){
         
@@ -61,6 +60,8 @@ public class Controller {
        controlPersis.creerProduit(prodt);
     }       
 
+
+
     // celuici vient de doGet de SvCustomer pour l'affichage
     public List <Customer> getCustomers() {
         return controlPersis.getCustomers();
@@ -69,6 +70,11 @@ public class Controller {
     public List<Product> getProducts() {
         return controlPersis.getProducts();
     }    
+    //4.4 creation du mtd qui va appeler la persistence
+    public List<Office> getOffices() {
+        return controlPersis.getOffices();
+    }
+
     
     
     
@@ -123,12 +129,40 @@ public class Controller {
 
     public void editerProduit(Product pdrt) {
         controlPersis.editerProduit(pdrt);
+    }    
+
+        // Off_3.1 creation mtd  creerOffice et appelle à la bdd_persistence
+    public void creerOffice(String officeCodeCh, String cityCh, String phoneCh, String addressLine1Ch, String addressLine2Ch, String stateCh, String countryCh, String postalCodeCh, String territoryCh) {
+        Office offic = new Office();
+        offic.setOfficeCode(officeCodeCh);
+        offic.setCity(cityCh);
+        offic.setPhone(phoneCh);
+        offic.setAddressLine1(addressLine1Ch);
+        offic.setAddressLine2(addressLine2Ch);
+        offic.setState(stateCh);
+        offic.setCountry(countryCh);
+        offic.setPostalCode(postalCodeCh);
+        offic.setTerritory(territoryCh);
+        
+        controlPersis.creerOffice(offic);
+    }
+        
+    
+    //Off_4.9 : creation dans la controller de mtd effacerOffice - celuici vient de doPost de SvSuppOffice
+    public void effacerOffice(String officeCode) {
+        controlPersis.effacerOffice(officeCode);
     }
 
-  
-    
-    
+    ///Off 4.12 creation dans la controler de mtd  emenerOffice - celuici vient de doGet du SvEditOffice
+    public Office emenerOffice(String officeCode) {
+        return controlPersis.emenerOffice(officeCode);
+    }
 
+    /// Off_4.20 creation mthd editerOffice qui va faire appel à la persistence _celuici vient de doPost du SvEditOffice
+    public void editerOffice(Office offic) {
+        controlPersis.editerOffice(offic);
+    }
+    
 
     
 }

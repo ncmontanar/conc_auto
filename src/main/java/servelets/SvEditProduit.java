@@ -38,7 +38,7 @@ public class SvEditProduit extends HttpServlet {
         HttpSession misession = request.getSession();
         misession.setAttribute("prodEdition", pdrt);
 
-        System.out.println("le produit est " + pdrt.getProductName());
+        System.out.println("le produit en SvEditPdt est " + pdrt.getProductName());
         
         response.sendRedirect("editProduct.jsp"); 
 
@@ -80,9 +80,6 @@ public class SvEditProduit extends HttpServlet {
         //retour 
         response.sendRedirect("SvProduct");  
 
-         
-         
-         
     }
 
 
