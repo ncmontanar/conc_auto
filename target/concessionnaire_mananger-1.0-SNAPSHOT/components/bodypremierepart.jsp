@@ -113,10 +113,8 @@
                 <div id="collapseRh" class="collapse" aria-labelledby="headingRh" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Ressources Humaines</h6>
-                        <a class="collapse-item" href="utilities-color.html">Ensemble de personnel</a>
-                        <a class="collapse-item" href="utilities-border.html">Nouveau collaborateur</a>
-<!--                        <a class="collapse-item" href="utilities-animation.html">Modifer collaborateur</a>
-                        <a class="collapse-item" href="utilities-other.html">Supprimer collaborateur</a>-->
+                        <a class="collapse-item" href="SvEmployee">Ensemble de personnel</a>
+                        <a class="collapse-item" href="chargeEmployee.jsp">Nouveau collaborateur</a>
                     </div>
                 </div>
             </li>
@@ -349,20 +347,20 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="loginData.jsp">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
-                                <a class="dropdown-item" href="#">
+<!--                                <a class="dropdown-item" href="#">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Settings
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Activity Log
-                                </a>
+                                </a>-->
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="login.jsp" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>

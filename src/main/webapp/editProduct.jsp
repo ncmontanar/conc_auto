@@ -1,5 +1,5 @@
 <%-- 
-    Document   : editProduct
+    Document   : editProduct.jsp
     Created on : 7 oct. 2023, 19:07:45
     Author     : a895279
 --%>
@@ -32,7 +32,7 @@
                             <!--  le parametre à passer dans le Sv est le name="" de chaque class  -->
                             <form class="user" action="SvEditProduit" method="POST">
 
-                                <div class="form-group " > 
+                                <div class="form-group " > <!-- il ferme ou?   -->
                                     
                                     <div class="form-group "> 
                                                                         

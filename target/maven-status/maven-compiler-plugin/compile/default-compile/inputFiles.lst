@@ -9,6 +9,7 @@ C:\Users\a895279\OneDrive - Atos\Documents\NetBeans\conc_auto-main - Copie\src\m
 C:\Users\a895279\OneDrive - Atos\Documents\NetBeans\conc_auto-main - Copie\src\main\java\DAO\exceptions\PreexistingEntityException.java
 C:\Users\a895279\OneDrive - Atos\Documents\NetBeans\conc_auto-main - Copie\src\main\java\DAO\PersistenceController.java
 C:\Users\a895279\OneDrive - Atos\Documents\NetBeans\conc_auto-main - Copie\src\main\java\models\Product.java
+C:\Users\a895279\OneDrive - Atos\Documents\NetBeans\conc_auto-main - Copie\src\main\java\servelets\SvEditEmployee.java
 C:\Users\a895279\OneDrive - Atos\Documents\NetBeans\conc_auto-main - Copie\src\main\java\servelets\SvSuppProduit.java
 C:\Users\a895279\OneDrive - Atos\Documents\NetBeans\conc_auto-main - Copie\src\main\java\servelets\SvEditOffice.java
 C:\Users\a895279\OneDrive - Atos\Documents\NetBeans\conc_auto-main - Copie\src\main\java\models\OrderDetail.java
@@ -29,5 +30,7 @@ C:\Users\a895279\OneDrive - Atos\Documents\NetBeans\conc_auto-main - Copie\src\m
 C:\Users\a895279\OneDrive - Atos\Documents\NetBeans\conc_auto-main - Copie\src\main\java\DAO\exceptions\NonexistentEntityException.java
 C:\Users\a895279\OneDrive - Atos\Documents\NetBeans\conc_auto-main - Copie\src\main\java\models\Payment.java
 C:\Users\a895279\OneDrive - Atos\Documents\NetBeans\conc_auto-main - Copie\src\main\java\models\orderDetailCP.java
+C:\Users\a895279\OneDrive - Atos\Documents\NetBeans\conc_auto-main - Copie\src\main\java\servelets\SvEmployee.java
 C:\Users\a895279\OneDrive - Atos\Documents\NetBeans\conc_auto-main - Copie\src\main\java\servelets\SvLogin.java
 C:\Users\a895279\OneDrive - Atos\Documents\NetBeans\conc_auto-main - Copie\src\main\java\models\Employee.java
+C:\Users\a895279\OneDrive - Atos\Documents\NetBeans\conc_auto-main - Copie\src\main\java\servelets\SvSuppEmployee.java

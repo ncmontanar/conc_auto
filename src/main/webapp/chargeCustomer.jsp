@@ -93,7 +93,7 @@
 
                                     <div class="form-group">
                                       <label for="formGroupExampleInput2">Chargé de Client</label>
-                                      <input type="number" class="form-control" id="salesRepEmployeeNumber" name="salesRepEmployeeNumber" placeholder="ie. 101">
+                                      <input type="text" class="form-control" id="salesRepEmployeeNumber" name="salesRepEmployeeNumber" placeholder="ie. 101">
                                     </div>
 
 

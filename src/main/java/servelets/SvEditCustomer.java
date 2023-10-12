@@ -71,7 +71,7 @@ public class SvEditCustomer extends HttpServlet {
         
         // aporter la sesion : misession.setAttribute("custEdition", cust);
         // custEdition vient de la sesion et de editCustomer.jsp (<%Customer cust=(Customer)request.getSession().getAttribute("custEdition"); %>)
-        /// el atributo es el nom del usuario
+        /// el atributo es el nom del Customer
         Customer cust = (Customer)request.getSession().getAttribute("custEdition");
                       
         cust.setCustomerNumber(customerNumber);      

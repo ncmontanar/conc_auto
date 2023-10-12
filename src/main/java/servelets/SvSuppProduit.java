@@ -11,10 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import models.Controller;
 
-/**
- *
- * @author a895279
- */
+
 @WebServlet(name = "SvSuppProduit", urlPatterns = {"/SvSuppProduit"})
 public class SvSuppProduit extends HttpServlet {
 

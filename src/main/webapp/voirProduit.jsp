@@ -87,7 +87,7 @@
                                             <input type="hidden" name="productCode" value="<%=pdrt.getProductCode()%>"> <!-- esto es para mandar el codigo al servelet -->
                                         </form>
 
-                                       <!--name="productNameNameEd" vient de editCustommer-->
+                                       <!--name="productNameNameEd" vient de editProduct-->
                                         <form name="Editer" action="SvEditProduit" method="GET"> <!-- Esto es para enviar codigo al Sevelet -->
                                             <button type="submit" class="btn btn-primary btn-user btn-block"; style="margin-left: 5px;">
                                                 <i class="fas fa-solid fa-pencil-alt"></i> Editer

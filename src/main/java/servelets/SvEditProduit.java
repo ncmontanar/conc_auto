@@ -57,10 +57,13 @@ public class SvEditProduit extends HttpServlet {
          String quantityInStock= request.getParameter("quantityInStockNameEd");
          float buyPrice = Float.parseFloat(request.getParameter("buyPriceNameEd"));
          float MSRP =  Float.parseFloat(request.getParameter("MSRPNameEd"));
-       
-         //aporter la sesion : misession.setAttribute("prodEdition", pdrt);
-         //
-         /// el atributo es el nom del 
+        
+         
+        // aporter la sesion : misession.setAttribute("prodEdition", pdrt);
+        // pdrtEdition vient de la sesion et de editProduit.jsp (<%Customer cust=(Customer)request.getSession().getAttribute("custEdition"); %>)
+        /// el atributo es el nom del produit
+         
+         
          Product pdrt = (Product)request.getSession().getAttribute("prodEdition");
          
          pdrt.setProductCode(productCode);
