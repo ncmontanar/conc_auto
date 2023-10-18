@@ -8,6 +8,7 @@
 <%@page import="models.Customer"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<title>Liste Produits</title>
 
 
 <%@include file="components/header.jsp" %>

@@ -6,6 +6,7 @@
 
 <%@page import="models.Office"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<title>Edition Agence</title> 
 
 
 <%@include file="components/header.jsp" %>

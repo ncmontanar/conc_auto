@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<title>Nouveau Collaborateur</title> 
 
 <%@include file="components/header.jsp" %>
 <%@include file="components/bodypremierepart.jsp" %>

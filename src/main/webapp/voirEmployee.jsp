@@ -8,6 +8,7 @@
 <%@page import="models.Employee"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<title>Liste Employees</title>
 
 
 <%@include file="components/header.jsp" %>
@@ -26,12 +27,13 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">COLLABORATEURS</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Collaborateurs Actifs :</h6>
                         </div>
                         
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
+                        <div class="card-body" id="loadContent">
+                            <div class="table-responsive-xl table-responsive-lg table-responsive-md table-responsive-sm table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"> <!--attentionà l_id de la table-->
+                                    <thead>
                                         <tr>
                                             <th>ID Collaborateur</th>                                            
                                             <th>Nom Collaborateur</th> 

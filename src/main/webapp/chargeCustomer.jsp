@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<title>Nouveau Client</title> 
 
 <%@include file="components/header.jsp" %>
 <%@include file="components/bodypremierepart.jsp" %>
@@ -93,7 +94,7 @@
 
                                     <div class="form-group">
                                       <label for="formGroupExampleInput2">Chargé de Client</label>
-                                      <input type="text" class="form-control" id="salesRepEmployeeNumber" name="salesRepEmployeeNumber" placeholder="ie. 101">
+                                      <input type="number" class="form-control" id="salesRepEmployeeNumberId" name="salesRepEmployeeNumberNm" placeholder="ie. 101">
                                     </div>
 
 

@@ -1,5 +1,5 @@
 <%-- 
-    Document   : loginError
+    Document   : loginError.jsp
     Created on : 4 oct. 2023, 14:13:49
     Author     : a895279
 --%>
@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Login CA AutoFuture</title>
+    <title>Login Erreur CA AutoFuture</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

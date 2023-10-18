@@ -43,6 +43,7 @@ public class SvCustomer extends HttpServlet {
         
         //control de registro en consola
         System.out.println("liste customer en SvCust: "+listeCustomers.get(0));
+        System.out.println("liste customer class en SvCust: "+listeCustomers.getClass());
         
         
         response.sendRedirect("voirCustomer.jsp");    
@@ -67,7 +68,7 @@ public class SvCustomer extends HttpServlet {
         String postalCode= request.getParameter("postalCode");
         String country= request.getParameter("country");
         float creditLimit= Float.parseFloat(request.getParameter("creditLimit"));
-        int salesRepEmployeeNumber = Integer.parseInt(request.getParameter("salesRepEmployeeNumber"));
+        int salesRepEmployeeNumber = Integer.parseInt(request.getParameter("salesRepEmployeeNumberNm")); // salesRepEmployeeNumberNm ou salesRepEmployeeNumberId
         
         System.out.println("el nombre de customer es "+customerName);
         

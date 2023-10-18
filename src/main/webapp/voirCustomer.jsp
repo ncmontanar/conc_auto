@@ -1,5 +1,5 @@
 <%-- 
-    Document   : voirCustomer
+    Document   : voirCustomer.jsp
     Created on : 23 sept. 2023, 18:29:14
     Author     : a895279
 --%>
@@ -7,13 +7,14 @@
 <%@page import="models.Customer"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<title>Liste Clients</title>
 
 
 <%@include file="components/header.jsp" %>
 <%@include file="components/bodypremierepart.jsp" %>
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">  
+<!--                <div class="container-fluid">  -->
 
                     <!-- Page Heading -->                 
                     <p class="mb-4">Liste des clients actifs dans le Systeme. Si vous souhaitez charger un nouveau client, alllez au <a target="_blank"
@@ -120,6 +121,5 @@
 
             </div>
             <!-- End of Main Content -->
-            
-            
+                       
 <%@include file="components/piedfinale.jsp" %>

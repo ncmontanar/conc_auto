@@ -4,10 +4,13 @@
     Author     : CamiloM
 --%>
 
+<%@page import="models.Employee"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html><!DOCTYPE html>
+
 <html lang="en">
 <%@include file="components/header.jsp" %>
+
+
 <!-- head replacé dans un jsp à part -->
 <!--<head>
 
@@ -418,10 +421,13 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly X1)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"> 0
+                                                Nombre de collaborateurs (Disponibles t1)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" > 
                                                 <%-- Aquí se incrusta el valor de ganancias mensuales desde la lógica de Java --%>
-                                                
+                                                <!--%=request.getSession().getAttribute("employeeCount")%-->
+                                                 ${employeeCount}
+                                                    
+                                                        
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -439,8 +445,10 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual X2)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                                Total inventaire (T1)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                $215,000 <!-- Aquí se incrusta el atributo que viene lógica de Java -->
+                                            </div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>

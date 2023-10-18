@@ -6,6 +6,7 @@
 
 <%@page import="models.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<title>Edition Client</title> 
 
 <%@include file="components/header.jsp" %>
 <%@include file="components/bodypremierepart.jsp" %>

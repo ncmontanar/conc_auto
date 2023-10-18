@@ -149,6 +149,12 @@ public class PersistenceController {
     }
 
     
+    /// 7 .creer une appel à la méthode getEmployee count
+        public int getEmployeeCount() {
+          return emplyeJPA.getEmployeeCount();
+    }
+
+    
     //********** CLIENTS **********************************//
    
     //3eme pas : vient de controller : on va creer un client -2.1
@@ -186,6 +192,6 @@ public class PersistenceController {
             Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }    
-
+   
     
 }

@@ -23,9 +23,6 @@ public class Controller {
         // celuici vient de doGet de SvProduct
         Product prodt = new Product();
         
-        
-
-
         //prodt.setProductCode(0);
         prodt.setProductName(productName);
         //prodt.setProductLine(productLine);
@@ -107,6 +104,7 @@ public class Controller {
         
         Employee employ = new Employee();
         
+        // verif si officeInsert se trouve dans la liste d'agences
         Office officeInsert = null;
         for (Office office : controlPersis.getOffices()) {
             if (officeCode != null && officeCode.equals(office.getOfficeCode())) {
@@ -114,25 +112,21 @@ public class Controller {
             }
         }
         
-        ///ne marche pas !
-        Integer reportsSupInteger = reportsTo;
+        // verif si reportsTo se trouve dans la liste d'employees
         Employee emplSupr = null;
         for(Employee employee : controlPersis.getEmployees()) {
-            if (reportsSupInteger != null && reportsSupInteger.equals(employee.getReportsTo())) {
+            if (reportsTo == employee.getEmployeeNumber()) {
                 emplSupr = employee;
             }
         }
-        
 
-
-        
         //employ.setEmployeeNumber(employeeNumber);
         employ.setLastName(lastName);
         employ.setFirstName(firstName);
         employ.setExtension(extension);
         employ.setEmail(email);
         employ.setJobTitle(jobTitle);
-        employ.setReportsTo(emplSupr);         /// A VERIFIER no puedo castearlo
+        employ.setReportsTo(emplSupr);         
         employ.setOfficeCode(officeInsert);       
         
         System.out.println("employee ofice is " + employ.getOfficeCode().getOfficeCode());
@@ -163,6 +157,13 @@ public class Controller {
         controlPersis.editerEmployee(emply);
     }
 
+    /// 7 .creer une appel à la méthode getEmployee count
+    public int getEmployeeCount() {
+        return controlPersis.getEmployeeCount();  
+    }
+
+
+    
     //********** CLIENTS **********************************//
     
     //on va creer un client -1 qu'appelle à la persistence
@@ -174,13 +175,14 @@ public class Controller {
 
         Customer cust = new Customer(); 
         
-//        Employee respoEmploInsert = null;
-//        for (Employee employee : controlPersis.getEmployees()){
-//            if (salesRepEmployeeNumber != null && salesRepEmployeeNumber.equals(employee.getEmployeeNumber())) {
-//                respoEmploInsert = salesRepEmployeeNumber;
-//            }
-//        }
-        
+        // verif si SalesRepEmployeeNumber se trouve dans la liste d'employees
+        Employee emplCharg = null;
+        for(Employee employee : controlPersis.getEmployees()) {
+            if (salesRepEmployeeNumber == employee.getEmployeeNumber()) {
+                emplCharg = employee;
+            }
+        }
+ 
         //cust.setCustomerNumber(0);
         cust.setCustomerName(customerName);
         cust.setContactLastName(contactLastName);
@@ -193,7 +195,7 @@ public class Controller {
         cust.setPostalCode(postalCode);
         cust.setCountry(country);
         cust.setCreditLimit(creditLimit);
-        //cust.setSalesRepEmployeeNumber(respoEmploInsert);
+        cust.setSalesRepEmployeeNumber(emplCharg);
 
         //       
         controlPersis.creerCustomer(cust);
@@ -245,7 +247,6 @@ public class Controller {
 
     }
     //********** ******* **********************************//
-
 
 
 
