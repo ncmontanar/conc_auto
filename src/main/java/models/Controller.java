@@ -5,6 +5,7 @@
 package models;
 
 import DAO.PersistenceController;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,6 +57,18 @@ public class Controller {
     public void editerProduit(Product pdrt) {
         controlPersis.editerProduit(pdrt);
     }   
+    
+    
+    /// produit valuation
+    public Float getStockValue() {
+      return controlPersis.getStockValue();
+    }
+    
+    // produit valuation IN
+    public float getstockValueIn() {
+       return controlPersis.getstockValueIn();
+    }
+
     
     
     //**********AGENCES **********************************//
@@ -247,6 +260,7 @@ public class Controller {
 
     }
     //********** ******* **********************************//
+
 
 
 

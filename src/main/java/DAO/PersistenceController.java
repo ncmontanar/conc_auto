@@ -7,6 +7,7 @@ package DAO;
 
 
 import DAO.exceptions.NonexistentEntityException;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -70,6 +71,20 @@ public class PersistenceController {
             Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
         }  
     }
+    // produit valuation
+    public Float getStockValue() {
+       return pdtoJPA.getTotalMsrpSum();
+    }
+    
+    //produit valuation IN
+    public float getstockValueIn() {
+        return pdtoJPA.getTotalBuyPrice();
+    }
+       
+   
+    
+    
+    
     
     //**********AGENCES **********************************//
  
@@ -192,6 +207,8 @@ public class PersistenceController {
             Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }    
-   
+
+
+
     
 }

@@ -38,17 +38,18 @@ public class SvCountEmployee extends HttpServlet {
         //appel à la controller
         int employeeCount = control.getEmployeeCount();
         
-//        RequestDispatcher reco = request.getRequestDispatcher("index.jsp");
-        
-        request.setAttribute("employeeCount", employeeCount);
+         // travailler avec sessions : creation des instances avec http
+        HttpSession misession = request.getSession();
+        misession.setAttribute("count", employeeCount); 
 
+       ///
+       request.setAttribute("count", employeeCount);
        
+       ///
        System.out.println("le nb  de empl en SvCountEmployee est " + employeeCount); 
-       
-//       reco.forward(request, response);
+             
        response.sendRedirect("index.jsp");
-        
-
+       
     }
 
 

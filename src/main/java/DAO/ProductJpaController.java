@@ -6,6 +6,7 @@ package DAO;
 
 import DAO.exceptions.NonexistentEntityException;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
@@ -17,6 +18,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
 import models.Product;
 
 
@@ -219,5 +222,42 @@ public class ProductJpaController implements Serializable {
             em.close();
         }
     }
+    
+    ///
+    public float getTotalMsrpSum() {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<Float> cq = cb.createQuery(Float.class);
+            Root<Product> root = cq.from(Product.class);
+            cq.select(cb.sum(root.get("MSRP")));
+            TypedQuery<Float> q = em.createQuery(cq);
+            return q.getSingleResult();
+        } finally {
+            em.close();
+        }
+    }
+    
+    ///
+    public float getTotalBuyPrice() {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<Float> cq = cb.createQuery(Float.class);
+            Root<Product> root = cq.from(Product.class);
+            cq.select(cb.sum(root.get("buyPrice")));
+            TypedQuery<Float> query = em.createQuery(cq);
+            Float result = query.getSingleResult();
+            return result != null ? result.floatValue() : 0f;
+        } finally {
+            em.close();
+    }
+        
+        
+}
+
+    
+    
+
     
 }
