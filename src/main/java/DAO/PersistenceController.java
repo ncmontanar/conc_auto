@@ -71,6 +71,13 @@ public class PersistenceController {
             Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
         }  
     }
+   
+    //produit count 
+    public int getStockCount() {
+        return pdtoJPA.getProductCount();   
+    }
+
+
     // produit valuation
     public Float getStockValue() {
        return pdtoJPA.getTotalMsrpSum();
@@ -120,6 +127,12 @@ public class PersistenceController {
             Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
+    //
+    public int getAgenceCount() {
+      return offcJPA.getOfficeCount();
+    }    
     
     //********** Ressources Humaines **********************************//
     
@@ -208,7 +221,16 @@ public class PersistenceController {
         }
     }    
 
-
-
+    // CustomerCount
+    public int getClientsCount() {
+        return customrJPA.getCustomerCount();
+    }
     
+    //CustomerCount plus    
+
+    public int getClientsPlus() {
+        return customrJPA.getCustomerCountWithCreditLimit();
+    }
+
+
 }

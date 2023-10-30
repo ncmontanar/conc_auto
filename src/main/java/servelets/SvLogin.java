@@ -47,7 +47,7 @@ public class SvLogin extends HttpServlet {
         if(validationLog == true){
             HttpSession misession = request.getSession(true);       //getSession apporte la sesion de l_utilisateur actuel 
             misession.setAttribute("EmailLog", email);          //creamos una sesion y esta sesion corresponde a este usuario
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("SvIndicateurs");
         }
         else{
             response.sendRedirect("loginError.jsp");  ///loginError à completer en front !

@@ -81,7 +81,7 @@ public class SvOffice extends HttpServlet {
         control.creerOffice(officeCodeCh,cityCh, phoneCh, addressLine1Ch, addressLine2Ch, stateCh, countryCh, postalCodeCh, territoryCh);
 
        //Off_ redicretion vers index apres insert dans la BDD
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("SvIndicateurs");
     }
 
 

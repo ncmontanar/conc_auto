@@ -71,7 +71,7 @@ public class SvProduct extends HttpServlet {
         
 
         //redicretion vers index apres insert dans la BDD
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("SvIndicateurs");
     }
 
     @Override

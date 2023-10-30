@@ -17,6 +17,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
 import models.Customer;
 import models.Payment;
 
@@ -270,5 +272,20 @@ public class CustomerJpaController implements Serializable {
             em.close();
         }
     }
+    
+    //
+    public int getCustomerCountWithCreditLimit() {
+    EntityManager em = getEntityManager();
+    try {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Long> cq = cb.createQuery(Long.class);
+        Root<Customer> rt = cq.from(Customer.class);
+        cq.select(cb.count(rt)).where(cb.gt(rt.get("creditLimit"), 0));
+        TypedQuery<Long> q = em.createQuery(cq);
+        return q.getSingleResult().intValue();
+    } finally {
+        em.close();
+    }
+}
     
 }

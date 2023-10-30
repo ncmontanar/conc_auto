@@ -7,9 +7,9 @@
 <%@page import="models.Employee"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+
 <html lang="en">
 <%@include file="components/header.jsp" %>
-
 
 <!-- head replacé dans un jsp à part -->
 <!--<head>
@@ -35,8 +35,10 @@
 
 
 <%@include file="components/bodypremierepart.jsp" %>
-<!--<body id="page-top">
 
+
+<!--<body id="page-top">
+   
      Page Wrapper 
     <div id="wrapper">
 
@@ -413,29 +415,32 @@
                     </div>
                     
                     <div class="row">
+                   
+
    
-                        <!-- Earnings (Monthly - Monthly X1) Card Example -->
+                        <!-- Stocks -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card border-left-danger shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Nombre de collaborateurs </div>
+                                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                                Nombre de Unités en  stock </div> 
                                             <div class="h5 mb-0 font-weight-bold text-gray-800" > 
                                                 <%-- Aquí se incrusta el valor de ganancias mensuales desde la lógica de Java --%>
-                                                <%=request.getSession().getAttribute("count")%>    
+                                                    <!-- count -->
+                                                <%=request.getSession().getAttribute("countStock")%>
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-building fa-solid text-gray-300"></i>
-                                        </div>
+                                            <i class="fas fa-angle-double-up fa-2x text-gray-300"></i>
+                                        </div> 
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Earnings (Monthly - Annual X2) Card Example -->
+                                         
+                        <!-- inventaire vente -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
@@ -445,8 +450,9 @@
                                                 Total inventaire Vente (T1)</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <!-- Aquí se incrusta el atributo que viene lógica de Java -->
-                                                <%=request.getSession().getAttribute("value")%>
+                                                 <%=request.getSession().getAttribute("value")%>
                                             </div>
+                                            
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -458,15 +464,15 @@
 
                          <!-- Stock (otal Evaluation inventaire IN )  -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Total Evaluation inventaire IN (T1)</div>
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                                Total Evaluation inventaire IN  en €</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <!-- Aquí se incrusta el atributo que viene lógica de Java -->
-                                                <%=request.getSession().getAttribute("valueStcIn")%>
+                                                 <%=request.getSession().getAttribute("valueStcIn")%> 
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -506,7 +512,7 @@
                         </div>-->
 
                         <!-- Pending Requests Card Example  Pending Requests -->
-                        <div class="col-xl-3 col-md-6 mb-4">
+<!--                        <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-warning shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -521,7 +527,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                     <hr/> 
 
@@ -541,13 +547,13 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Nombre de collaborateurs </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800" > 
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" >
                                                 <%-- Aquí se incrusta el valor de ganancias mensuales desde la lógica de Java --%>
-                                                <%=request.getSession().getAttribute("count")%>    
+                                                <%=request.getSession().getAttribute("count")%>  
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-building fa-solid text-gray-300"></i>
+                                            <i class="fas fa-address-book fa-2x  fa-solid text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -557,16 +563,18 @@
 
                         <!-- Nombre Agences -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
+                            <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                                 Nombre d'agences</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">a calculer</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                <%=request.getSession().getAttribute("countAgence")%> 
+                                            </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                             <i class="fas fa-building fa-2x fa-solid text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -662,11 +670,13 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Nombre d'agences</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">a calculer</div>
+                                                Nombre de clients actifs </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                <%=request.getSession().getAttribute("countClient")%> 
+                                            </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            <i class="fas fa-user fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -680,8 +690,10 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Nombre d'agences 2</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">a calculer</div>
+                                                Nombre de Clients Plus + </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                <%=request.getSession().getAttribute("countClientPlus")%> 
+                                            </div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -692,7 +704,7 @@
                         </div>
                         
                          <!-- Nombre Clients3 -->
-                        <div class="col-xl-3 col-md-6 mb-4">
+<!--                        <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-warning shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -707,7 +719,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                     <hr/> 
                     
                         

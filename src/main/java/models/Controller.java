@@ -5,7 +5,6 @@
 package models;
 
 import DAO.PersistenceController;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +14,7 @@ import java.util.List;
 public class Controller {
     
     PersistenceController controlPersis = new PersistenceController();
-    
+ 
     //**********STOCKS **********************************//
        
     //2.2 on va creer un produit -1 qu'appelle à la persistence
@@ -58,7 +57,11 @@ public class Controller {
         controlPersis.editerProduit(pdrt);
     }   
     
-    
+    ///    produit count  
+    public int getStockCount() {
+     return controlPersis.getStockCount();
+    }
+
     /// produit valuation
     public Float getStockValue() {
       return controlPersis.getStockValue();
@@ -69,8 +72,7 @@ public class Controller {
        return controlPersis.getstockValueIn();
     }
 
-    
-    
+
     //**********AGENCES **********************************//
             // Off_3.1 creation mtd  creerOffice et appelle à la bdd_persistence
     public void creerOffice(String officeCodeCh, String cityCh, String phoneCh, String addressLine1Ch, String addressLine2Ch, String stateCh, String countryCh, String postalCodeCh, String territoryCh) {
@@ -108,6 +110,13 @@ public class Controller {
     public void editerOffice(Office offic) {
         controlPersis.editerOffice(offic);
     }
+    
+    // compterAgences 
+    public int getAgenceCount() {
+       return controlPersis.getAgenceCount();
+    }
+
+
     
     //********** Ressources Humaines **********************************//
     
@@ -234,6 +243,16 @@ public class Controller {
         controlPersis.editerCustomer(cust);
     }
     
+    // CustomerCount
+    public int getClientsCount() {
+      return controlPersis.getClientsCount();
+
+    }
+    //CustomerCount plus
+    public int getClientsPlus() {
+        return controlPersis.getClientsPlus();
+    }
+
     
     
     //********** Aceess **********************************//
@@ -264,5 +283,4 @@ public class Controller {
 
 
 
-    
 }

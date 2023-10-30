@@ -5,7 +5,6 @@ package servelets;
 
 
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +15,7 @@ import models.Controller;
 
 
 
-@WebServlet(name = "SvCountEmployee", urlPatterns = {"/SvCountEmployee"})
+@WebServlet(name = "SvCountEmployee", urlPatterns = {"/SvIndicateurs"})
 public class SvCountEmployee extends HttpServlet {
     
             // appel à la classe controller
@@ -32,23 +31,47 @@ public class SvCountEmployee extends HttpServlet {
     /// 7 .creer une appel à la méthode getEmployee count
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-       
+            throws ServletException, IOException {      
                 
         //appel à la controller
+        int stockCount = control.getStockCount();
+        float stockValue = control.getStockValue();
+        float stockValueIn = control.getstockValueIn();
         int employeeCount = control.getEmployeeCount();
-        
+        int agenceCount = control.getAgenceCount();
+        int clientsCount = control.getClientsCount();
+        int clientsCountPlus = control.getClientsPlus();
+       
          // travailler avec sessions : creation des instances avec http
         HttpSession misession = request.getSession();
-        misession.setAttribute("count", employeeCount); 
+        misession.setAttribute("countStock", stockCount);
+        misession.setAttribute("value", stockValue);
+        misession.setAttribute("valueStcIn",stockValueIn);
+        misession.setAttribute("count", employeeCount);
+        misession.setAttribute("countAgence", agenceCount);
+        misession.setAttribute("countClient", clientsCount);
+        misession.setAttribute("countClientPlus", clientsCountPlus);
 
+      ///
+        request.setAttribute("countStock",stockCount );
+        request.setAttribute("value", stockValue);
+        request.setAttribute("valueStcIn", stockValueIn);
+        request.setAttribute("countAgence", agenceCount);
+        request.setAttribute("countClient", clientsCount);
+        request.setAttribute("countClientPlus", clientsCountPlus);
+      
        ///
-       request.setAttribute("count", employeeCount);
+        System.out.println( "le nb  d_element en SvCount est " + stockCount);
+        System.out.println("le nb  de empl en SvCountEmployee est " + employeeCount);
+        System.out.println("la valeur du stock en SvProduitValue est " + stockValue); 
+        System.out.println("la valeur du stockIn en SvProduitValueIN est " + stockValueIn); 
+        System.out.println("la valeur du countAgence en SvProduitValueest " + agenceCount); 
+        System.out.println("la valeur du countClientPlus en SvProduitValueest " + clientsCountPlus);
+        
+
        
-       ///
-       System.out.println("le nb  de empl en SvCountEmployee est " + employeeCount); 
-             
-       response.sendRedirect("index.jsp");
+        //
+        response.sendRedirect("index.jsp");
        
     }
 
@@ -57,6 +80,7 @@ public class SvCountEmployee extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
 
     }
 

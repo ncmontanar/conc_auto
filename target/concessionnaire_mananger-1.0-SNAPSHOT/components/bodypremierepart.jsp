@@ -43,7 +43,7 @@
 
             <!-- Nav Item - TABLEAU DE CONTROLE -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.jsp">  
+                <a class="nav-link" href="SvIndicateurs">  
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>TABLEAU DE CONTROLE</span></a>
             </li>

@@ -42,7 +42,8 @@ public class SvEmployee extends HttpServlet {
         System.out.println("liste employess en SvEmplo : "+listEmployeesAff.get(0));
         
         /// 5.3.5 retur  à la console
-        response.sendRedirect("voirEmployee.jsp");   
+        response.sendRedirect("voirEmployee.jsp");
+        
 
     }
 
@@ -78,7 +79,7 @@ public class SvEmployee extends HttpServlet {
          control.creerEmployee(lastName, firstName, extension, email, jobTitle, reportsTo, officeCode);
     
          ///Emp_5.2.5_ redicretion vers index apres insert dans la BDD
-         response.sendRedirect("index.jsp");
+         response.sendRedirect("SvIndicateurs");
     }
     
     

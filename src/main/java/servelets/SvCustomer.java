@@ -71,12 +71,13 @@ public class SvCustomer extends HttpServlet {
         int salesRepEmployeeNumber = Integer.parseInt(request.getParameter("salesRepEmployeeNumberNm")); // salesRepEmployeeNumberNm ou salesRepEmployeeNumberId
         
         System.out.println("el nombre de customer es "+customerName);
+     
         
         //il est crée en controller  - creerCustomer
         control.creerCustomer(customerName, contactLastName, contactFirstName, phone, addressLine1, addressLine2, city, state, postalCode, country, creditLimit, salesRepEmployeeNumber);
                 
         //redicretion vers index apres insert dans la BDD
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("SvIndicateurs");
     }
 
 

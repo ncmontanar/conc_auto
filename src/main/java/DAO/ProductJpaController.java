@@ -6,7 +6,6 @@ package DAO;
 
 import DAO.exceptions.NonexistentEntityException;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
