@@ -1,15 +1,15 @@
 
 # conc_auto
 
-# conc_auto
 
 
 La concession automobile AutoFuture contemple plusieurs objectifs qui donnent forme à faciliter les réalisation des ventes : 
-•	Etablir une plateforme centralisée d’information : il s’agit d’une source d’information unique où les vendeurs peuvent gérer efficacement les stocks de véhicules, les informations sur les clients, les suivis des ventes, et les données financières en temps réel. Il est donc attendue une meilleure coordination entre les employés et une réduction des erreurs administratives.
 
-•	Fomenter l’utilisation de l’application : l'application peut être accessible à partir des postes informatiques autorisés et connectés à Internet, ce qui offre une flexibilité aux vendeurs pour travailler à distance ou en déplacement.
+### Etablir une plateforme centralisée d’information : il s’agit d’une source d’information unique où les vendeurs peuvent gérer efficacement les stocks de véhicules, les informations sur les clients, les suivis des ventes, et les données financières en temps réel. Il est donc attendue une meilleure coordination entre les employés et une réduction des erreurs administratives.
 
-•	Exploiter les informations de l’activité :  l'analyse des données recueillies par l'application peut aider à identifier les niches du marché, à personnaliser les offres pour chaque client et à prendre des décisions stratégiques pour faciliter chaque vente.
+### Fomenter l’utilisation de l’application : l'application peut être accessible à partir des postes informatiques autorisés et connectés à Internet, ce qui offre une flexibilité aux vendeurs pour travailler à distance ou en déplacement.
+
+###	Exploiter les informations de l’activité :  l'analyse des données recueillies par l'application peut aider à identifier les niches du marché, à personnaliser les offres pour chaque client et à prendre des décisions stratégiques pour faciliter chaque vente.
 
 
 Besoins	Contraintes
